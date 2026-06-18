@@ -1,9 +1,21 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Reviews() {
   const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      x: ["0%", "-50%"],
+      transition: {
+        repeat: Infinity,
+        ease: "linear",
+        duration: 40,
+      },
+    });
+  }, [controls]);
 
   // Your 8 image paths
   const reviewImages = [
@@ -39,7 +51,7 @@ export default function Reviews() {
           // The hover logic: pauses the animation when mouse enters
           onHoverStart={() => controls.stop()}
           onHoverEnd={() => controls.start({ x: ["0%", "-50%"] })}
-          animate={controls}
+        
         >
           {/* We duplicate the array to create a seamless infinite loop */}
           {[...reviewImages, ...reviewImages].map((src, index) => (
