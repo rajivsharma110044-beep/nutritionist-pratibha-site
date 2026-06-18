@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 export default function Footer() {
-  const smoothEase = [0.16, 1, 0.3, 1];
+
 
   return (
     <footer className="relative flex h-[80svh] w-full flex-col items-center justify-between overflow-hidden bg-[#050505] px-8 pb-8 pt-32 text-white">
@@ -24,7 +24,7 @@ export default function Footer() {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.2, ease: smoothEase }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           className="mt-12 rounded-full bg-white px-8 py-4 text-sm font-bold uppercase tracking-widest text-[#050505] transition-transform hover:scale-105"
         >
           Book Consultation
