@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 export default function About() {
-  const easeOut = [0.16, 1, 0.3, 1];
 
   return (
     // We use pure white here to create a subtle contrast from the off-white Services section
@@ -19,7 +18,7 @@ export default function About() {
             initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, ease: easeOut }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             // REMOVED fixed height (h-[500px]) and extreme arch. 
             // Changed to standard rounded-3xl so the frame fits your whole photo.
             className="relative w-full max-w-md overflow-hidden rounded-3xl shadow-2xl"
