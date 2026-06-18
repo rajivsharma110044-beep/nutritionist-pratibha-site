@@ -7,11 +7,11 @@ export default function Hero() {
 
 
   const dropSpring = {
-    type: "spring",
-    damping: 12,
-    stiffness: 100,
-    mass: 1.2,
-  };
+  type: "spring" as const, // Adding "as const" fixes the TypeScript type error
+  damping: 20,
+  stiffness: 100,
+  mass: 1
+};
 
   return (
     <section className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-transparent px-8 pb-12 pt-32 text-slate-900">
