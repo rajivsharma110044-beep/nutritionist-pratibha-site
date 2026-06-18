@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Scene from "@/components/Scene";
 
 export default function Hero() {
-  const smoothEase = [0.16, 1, 0.3, 1];
+
 
   const dropSpring = {
     type: "spring",
@@ -27,7 +27,7 @@ export default function Hero() {
           <motion.h1 
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, ease: smoothEase }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="pointer-events-auto text-[8vw] md:text-[6vw] font-black uppercase leading-[0.9] tracking-tighter text-slate-900"
           >
             Master Your
@@ -37,7 +37,7 @@ export default function Hero() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.15, ease: smoothEase }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="pointer-events-auto mt-8 max-w-sm md:max-w-md text-sm font-medium text-slate-600 md:text-base"
           >
             Transform your health with personalized diet plans crafted around your unique body, lifestyle, and aspirations. We combine evidence-based nutrition with professional support to help you achieve lasting results—without extreme restrictions or unsustainable trends.
@@ -143,7 +143,7 @@ export default function Hero() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.3, ease: smoothEase }}
+        transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
         className="relative z-10 mx-auto grid w-full max-w-3xl grid-cols-1 gap-8 border-t border-pink-200 pt-8 md:grid-cols-3 md:gap-12 pointer-events-auto"
       >
         <div className="flex flex-col">
