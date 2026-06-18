@@ -14,7 +14,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1.2, ease: smoothEase }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           className="text-[10vw] font-black uppercase leading-[0.85] tracking-tighter"
         >
           Start Your <br /> Protocol.
