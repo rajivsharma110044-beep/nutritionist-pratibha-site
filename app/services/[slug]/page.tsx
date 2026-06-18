@@ -2,7 +2,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ContactSection from "@/components/ContactSection"; // 1. Cleanly importing your new component
 
-const serviceDetails: Record<string, any> = {
+type ServiceDetail = {
+  title: string;
+  tagline: string;
+  description: string;
+  benefits: string[];
+};
+
+const serviceDetails: Record<string, ServiceDetail> = {
   "pre-pregnancy-diet-plan": {
     title: "Pre-Pregnancy Diet Plan",
     tagline: "Prepare your body for a healthy conception.",
@@ -148,7 +155,15 @@ const serviceDetails: Record<string, any> = {
   }
 };
 
-export default async function ServiceDetailPage(props: any) {
+type ServiceDetailPageProps = {
+  params?: {
+    slug?: string;
+  } | Promise<{
+    slug?: string;
+  }>;
+};
+
+export default async function ServiceDetailPage(props: ServiceDetailPageProps) {
   
   let resolvedParams = props.params || {};
   if (resolvedParams instanceof Promise) {

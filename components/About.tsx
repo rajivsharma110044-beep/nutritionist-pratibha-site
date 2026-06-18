@@ -90,7 +90,7 @@ export default function About() {
               I have successfully guided thousands of women toward healthier lives through personalized, practical, and sustainable nutrition plans. Your transformation starts with the right nutrition strategy.
             </p>
             <p className="font-bold text-slate-900 italic">
-              "Let's create a healthier, stronger, and more confident you."
+              &ldquo;Let&apos;s create a healthier, stronger, and more confident you.&rdquo;
             </p>
           </motion.div>
 
