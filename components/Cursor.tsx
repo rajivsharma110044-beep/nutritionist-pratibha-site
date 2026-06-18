@@ -69,7 +69,7 @@ export default function CustomCursor() {
         strokeLinecap="round"
         strokeLinejoin="round"
         // Slight rotation to give it that modern macOS/premium feel
-        style={{ transform: "rotate(-10deg) translate(-2px, -2px)", dropShadow: "0px 4px 8px rgba(0,0,0,0.2)" }}
+        style={{ transform: "rotate(-10deg) translate(-2px, -2px)", filter: "drop-shadow(0px 4px 8px rgba(0,0,0,0.2))" }}
       >
         <path d="M4 4l7.07 16.97 2.51-7.39 7.39-2.51L4 4z" />
       </svg>
