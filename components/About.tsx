@@ -39,7 +39,7 @@ export default function About() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5, ease: easeOut }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut"}}
             className="absolute bottom-10 -left-4 lg:-left-12 flex items-center gap-4 rounded-2xl border border-white/60 bg-white/80 p-4 shadow-xl backdrop-blur-md"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-100 text-pink-500">
