@@ -36,7 +36,7 @@ export default function BookConsultation() {
 
         {/* PASTE YOUR FORMSPREE ID IN THE ACTION URL BELOW */}
         <form 
-          action="https://formspree.io/f/mnjykjpg" 
+          action="https://formspree.io/f/mppzwnaa" 
           method="POST"
           onSubmit={() => setIsSubmitting(true)}
           className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100"
