@@ -24,7 +24,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMobileNav = () => setIsMobileMenuOpen(false);
+  const handleMobileNav = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+  };
 
   return (
     <>
@@ -72,7 +75,6 @@ export default function Navbar() {
 
             <Link href="/#about" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">ABOUT</Link>
             <Link href="/#reviews" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">REVIEWS</Link>
-            {/* Added Contact Link */}
             <Link href="/#contact" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">CONTACT</Link>
           </div>
 
@@ -105,7 +107,7 @@ export default function Navbar() {
                 <svg className={`w-5 h-5 transition-transform ${isMobileServicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               {isMobileServicesOpen && (
-                <div className="mt-4 flex flex-col gap-4 bg-pink-50 w-full rounded-2xl py-4">
+                <div className="mt-4 flex flex-col gap-4 bg-pink-50 w-full rounded-2xl py-4 max-h-60 overflow-y-auto">
                   {services.map((service, index) => (
                     <Link key={index} href="/#services" onClick={handleMobileNav} className="text-slate-600 text-sm font-medium">{service}</Link>
                   ))}
@@ -114,7 +116,6 @@ export default function Navbar() {
             </div>
             <Link href="/#about" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">ABOUT</Link>
             <Link href="/#reviews" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">REVIEWS</Link>
-            {/* Added Contact Link */}
             <Link href="/#contact" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">CONTACT</Link>
           </div>
 
