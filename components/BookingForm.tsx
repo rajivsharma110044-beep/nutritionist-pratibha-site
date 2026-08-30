@@ -14,7 +14,7 @@ export default function BookingForm() {
   return (
     <section id="form" className="py-32 px-8 bg-pink-50/20">
       <motion.form 
-        action="https://formspree.io/f/YOUR_FORM_ID_HERE" 
+        action="https://formspree.io/f/mppzwnaa" 
         method="POST"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
