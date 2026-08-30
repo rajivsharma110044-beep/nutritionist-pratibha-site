@@ -28,8 +28,7 @@ export default function ContactSection() {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           
-          {[
-            { label: "WHATSAPP", val: "+91 8920836409", link: "https://wa.me/918920836409", icon: "💬", color: "hover:border-[#25D366] hover:text-[#25D366]" },
+          {[  
             { label: "INSTAGRAM", val: "@her.balancediet", link: "https://instagram.com/her.balancediet", icon: "📸", color: "hover:border-[#E1306C] hover:text-[#E1306C]" },
             { label: "EMAIL", val: "nutritionistpratibha02@gmail.com", link: "mailto:nutritionistpratibha02@gmail.com", icon: "✉️", color: "hover:border-pink-500 hover:text-pink-500" }
           ].map((item, idx) => (
