@@ -1,0 +1,7 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="64" fill="#EC4899"/>
+  <!-- The letter P -->
+  <path d="M96 176V80C96 71.1634 103.163 64 112 64H144C161.673 64 176 78.3269 176 96C176 113.673 161.673 128 144 128H112" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- A subtle leaf extending from the middle of the P -->
+  <path d="M144 128 C 176 128, 192 144, 192 176 C 160 176, 144 160, 144 128 Z" fill="#FBCFE8"/>
+</svg>
