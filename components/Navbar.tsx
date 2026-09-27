@@ -2,18 +2,31 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isStudio = pathname?.startsWith("/studio");
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
 
   const services = [
-    "Pre-Pregnancy Diet Plan", "Pregnancy Diet Plan", "Postpartum Diet Plan",
-    "Lactation Diet Plan", "IVF Diet Plan", "PCOS/PCOD Diet Plan",
-    "Weight Loss Diet Plan", "Weight Gain Diet Plan", "Thyroid Management",
-    "Diabetes Management", "Menopause Management", "Endometriosis Management",
-    "Skin and Hair Nutrition"
+    { title: "Pre-Pregnancy Diet Plan", slug: "pre-pregnancy-diet-plan" },
+    { title: "Pregnancy Diet Plan", slug: "pregnancy-diet-plan" },
+    { title: "Postpartum Diet Plan", slug: "postpartum-diet-plan" },
+    { title: "Lactation Diet Plan", slug: "lactation-diet-plan" },
+    { title: "IVF Diet Plan", slug: "ivf-diet-plan" },
+    { title: "PCOS/PCOD Diet Plan", slug: "pcos-pcod-diet-plan" },
+    { title: "Weight Loss Diet Plan", slug: "weight-loss-diet-plan" },
+    { title: "Weight Gain Diet Plan", slug: "weight-gain-diet-plan" },
+    { title: "Thyroid Management", slug: "thyroid-management" },
+    { title: "Diabetes Management", slug: "diabetes-management" },
+    { title: "Menopause Management", slug: "menopause-management" },
+    { title: "Endometriosis Management", slug: "endometriosis-management" },
+    { title: "Skin and Hair Nutrition", slug: "skin-hair-nutrition" }
   ];
 
   useEffect(() => {
@@ -28,6 +41,8 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
     setIsMobileServicesOpen(false);
   };
+
+  if (isStudio) return null;
 
   return (
     <>
@@ -55,18 +70,30 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <Link href="/#home" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">HOME</Link>
 
-            <div className="relative group py-4">
-              <button className="text-sm font-bold tracking-widest text-slate-900 group-hover:text-pink-500 transition-colors flex items-center gap-1">
+            <div 
+              className="relative py-4"
+              onMouseEnter={() => setIsDesktopServicesOpen(true)}
+              onMouseLeave={() => setIsDesktopServicesOpen(false)}
+            >
+              <button 
+                onClick={() => setIsDesktopServicesOpen(!isDesktopServicesOpen)}
+                className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors flex items-center gap-1"
+              >
                 SERVICES 
-                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-4 h-4 transition-transform ${isDesktopServicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white rounded-xl shadow-xl border border-pink-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white rounded-xl shadow-xl border border-pink-100 transition-all duration-300 overflow-hidden ${isDesktopServicesOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}>
                 <div className="max-h-80 overflow-y-auto py-2">
                   {services.map((service, index) => (
-                    <Link key={index} href="/#services" className="block px-6 py-3 text-sm text-slate-600 hover:bg-pink-50 hover:text-pink-600 transition-colors">
-                      {service}
+                    <Link 
+                      key={index} 
+                      href={`/services/${service.slug}`} 
+                      onClick={() => setIsDesktopServicesOpen(false)}
+                      className="block px-6 py-3 text-sm text-slate-600 hover:bg-pink-50 hover:text-pink-600 transition-colors"
+                    >
+                      {service.title}
                     </Link>
                   ))}
                 </div>
@@ -74,6 +101,7 @@ export default function Navbar() {
             </div>
 
             <Link href="/#about" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">ABOUT</Link>
+            <Link href="/blog" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">BLOG</Link>
             <Link href="/#reviews" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">REVIEWS</Link>
             <Link href="/#contact" className="text-sm font-bold tracking-widest text-slate-900 hover:text-pink-500 transition-colors">CONTACT</Link>
           </div>
@@ -109,12 +137,13 @@ export default function Navbar() {
               {isMobileServicesOpen && (
                 <div className="mt-4 flex flex-col gap-4 bg-pink-50 w-full rounded-2xl py-4 max-h-60 overflow-y-auto">
                   {services.map((service, index) => (
-                    <Link key={index} href="/#services" onClick={handleMobileNav} className="text-slate-600 text-sm font-medium">{service}</Link>
+                    <Link key={index} href={`/services/${service.slug}`} onClick={handleMobileNav} className="text-slate-600 text-sm font-medium">{service.title}</Link>
                   ))}
                 </div>
               )}
             </div>
             <Link href="/#about" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">ABOUT</Link>
+            <Link href="/blog" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">BLOG</Link>
             <Link href="/#reviews" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">REVIEWS</Link>
             <Link href="/#contact" onClick={handleMobileNav} className="text-xl font-bold tracking-widest text-slate-900">CONTACT</Link>
           </div>

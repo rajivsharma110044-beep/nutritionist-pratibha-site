@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     // 'scroll-smooth' helps with standard anchor links, while 'cursor-none' hides the default cursor for our custom one
     <html lang="en" className="scroll-smooth">
-      <body className="cursor-none bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col">
+      <body className="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col">
         
         {/* Our modern custom cursor */}
         <Cursor />
