@@ -49,8 +49,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-            : "bg-transparent py-5"
+            ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
+            : "bg-white/90 backdrop-blur-md py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -113,9 +113,10 @@ export default function Navbar() {
           </div>
 
           <div className="lg:hidden z-[101] flex items-center">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="relative w-10 h-10 flex items-center justify-center p-2 text-slate-900 focus:outline-none" aria-label="Toggle Menu">
-              <svg className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ${isMobileMenuOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-              <svg className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="relative w-10 h-10 flex flex-col items-center justify-center gap-[6px] p-2 text-slate-900 focus:outline-none" aria-label="Toggle Menu">
+              <span className={`block w-6 h-[2px] bg-slate-900 rounded-full transition-all duration-300 origin-center ${isMobileMenuOpen ? "translate-y-[8px] rotate-45" : ""}`} />
+              <span className={`block w-6 h-[2px] bg-slate-900 rounded-full transition-all duration-300 ${isMobileMenuOpen ? "opacity-0 translate-x-4" : "opacity-100"}`} />
+              <span className={`block w-6 h-[2px] bg-slate-900 rounded-full transition-all duration-300 origin-center ${isMobileMenuOpen ? "-translate-y-[8px] -rotate-45" : ""}`} />
             </button>
           </div>
         </div>
